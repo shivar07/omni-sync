@@ -25,7 +25,7 @@ function httpReq(url, method = 'GET', body = null) {
   const now = new Date();
   console.log("Current time:", now.toISOString());
 
-  const meets = await httpReq(`https://omnisync-64ec6-default-rtdb.firebaseio.com/users/${uid}/meets.json`);
+  const meets = await httpReq(`https://guru-201bf-default-rtdb.firebaseio.com/users/${uid}/meets.json`);
   console.log("Meets retrieved:", Object.keys(meets).length);
 
   for (const k of Object.keys(meets)) {
@@ -44,8 +44,8 @@ function httpReq(url, method = 'GET', body = null) {
         };
 
         console.log("Pushing pending notification payload to Firebase...");
-        await httpReq(`https://omnisync-64ec6-default-rtdb.firebaseio.com/users/${uid}/pending_notifications.json`, 'POST', payload);
-        await httpReq(`https://omnisync-64ec6-default-rtdb.firebaseio.com/users/${uid}/meets/${k}.json`, 'PATCH', { reminderTriggered: true });
+        await httpReq(`https://guru-201bf-default-rtdb.firebaseio.com/users/${uid}/pending_notifications.json`, 'POST', payload);
+        await httpReq(`https://guru-201bf-default-rtdb.firebaseio.com/users/${uid}/meets/${k}.json`, 'PATCH', { reminderTriggered: true });
         console.log(`SUCCESS! Notification pushed for meet "${m.title}".`);
       }
     }

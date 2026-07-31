@@ -40,3 +40,6 @@ omnisync-app/local.properties
 # Local installation scripts
 i.cmd
 install_d.cmd
+
+# Dev logs
+devlog.md

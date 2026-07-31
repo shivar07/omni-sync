@@ -108,7 +108,7 @@ class FirebaseSyncService : Service() {
         val uid = sharedPref.getString("saved_user_uid", null) ?: return // Stop polling if not paired yet
         
         // Check if pairing is still active on Firebase
-        val userPairUrl = "https://omnisync-64ec6-default-rtdb.firebaseio.com/user_sync_codes/$uid.json"
+        val userPairUrl = "https://guru-201bf-default-rtdb.firebaseio.com/user_sync_codes/$uid.json"
         val pairReq = Request.Builder().url(userPairUrl).build()
         client.newCall(pairReq).execute().use { pairRes ->
             val pairBody = pairRes.body?.string()
@@ -119,7 +119,7 @@ class FirebaseSyncService : Service() {
             }
         }
 
-        val dbUrl = "https://omnisync-64ec6-default-rtdb.firebaseio.com/users/$uid.json"
+        val dbUrl = "https://guru-201bf-default-rtdb.firebaseio.com/users/$uid.json"
         val request = Request.Builder().url(dbUrl).build()
         client.newCall(request).execute().use { response ->
             if (!response.isSuccessful) return
@@ -265,7 +265,7 @@ class FirebaseSyncService : Service() {
     }
 
     private fun markItemTriggered(uid: String, nodeName: String, key: String) {
-        val patchUrl = "https://omnisync-64ec6-default-rtdb.firebaseio.com/users/$uid/$nodeName/$key.json"
+        val patchUrl = "https://guru-201bf-default-rtdb.firebaseio.com/users/$uid/$nodeName/$key.json"
         val patchBody = "{\"reminderTriggered\": true}".toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
         val request = Request.Builder().url(patchUrl).patch(patchBody).build()
         client.newCall(request).enqueue(object : okhttp3.Callback {
@@ -275,7 +275,7 @@ class FirebaseSyncService : Service() {
     }
 
     private fun sendAckLog(uid: String, key: String) {
-        val ackUrl = "https://omnisync-64ec6-default-rtdb.firebaseio.com/users/$uid/delivered_acks/$key.json"
+        val ackUrl = "https://guru-201bf-default-rtdb.firebaseio.com/users/$uid/delivered_acks/$key.json"
         val jsonPayload = "{\"deliveredAt\": ${System.currentTimeMillis()}, \"status\": \"DELIVERED\"}"
         val ackBody = jsonPayload.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
         val ackRequest = Request.Builder().url(ackUrl).put(ackBody).build()
@@ -380,7 +380,7 @@ class FirebaseSyncService : Service() {
 
     private fun deleteNotificationFromFirebase(uid: String, key: String) {
         // Send ACK signal confirmation to Firebase RTDB
-        val ackUrl = "https://omnisync-64ec6-default-rtdb.firebaseio.com/users/$uid/delivered_acks/$key.json"
+        val ackUrl = "https://guru-201bf-default-rtdb.firebaseio.com/users/$uid/delivered_acks/$key.json"
         val jsonPayload = "{\"deliveredAt\": ${System.currentTimeMillis()}, \"status\": \"DELIVERED\"}"
         val ackBody = jsonPayload.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
         val ackRequest = Request.Builder().url(ackUrl).put(ackBody).build()
@@ -390,7 +390,7 @@ class FirebaseSyncService : Service() {
         })
 
         // Delete from pending_notifications queue
-        val deleteUrl = "https://omnisync-64ec6-default-rtdb.firebaseio.com/users/$uid/pending_notifications/$key.json"
+        val deleteUrl = "https://guru-201bf-default-rtdb.firebaseio.com/users/$uid/pending_notifications/$key.json"
         val request = Request.Builder()
             .url(deleteUrl)
             .delete()

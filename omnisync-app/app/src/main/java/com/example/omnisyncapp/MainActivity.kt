@@ -192,7 +192,7 @@ class MainActivity : ComponentActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 if (!code.isNullOrEmpty()) {
-                    val codeUrl = "https://omnisync-64ec6-default-rtdb.firebaseio.com/sync_codes/$code.json"
+                    val codeUrl = "https://guru-201bf-default-rtdb.firebaseio.com/sync_codes/$code.json"
                     val patchBody = JSONObject().apply {
                         put("status", "disconnected")
                         put("deviceId", "")
@@ -204,7 +204,7 @@ class MainActivity : ComponentActivity() {
                     client.newCall(request).execute().close()
                 }
 
-                val userCodeUrl = "https://omnisync-64ec6-default-rtdb.firebaseio.com/user_sync_codes/$uid.json"
+                val userCodeUrl = "https://guru-201bf-default-rtdb.firebaseio.com/user_sync_codes/$uid.json"
                 val delRequest = Request.Builder().url(userCodeUrl).delete().build()
                 client.newCall(delRequest).execute().close()
 
@@ -224,7 +224,7 @@ class MainActivity : ComponentActivity() {
         onError: (String) -> Unit
     ) {
         val client = OkHttpClient()
-        val url = "https://omnisync-64ec6-default-rtdb.firebaseio.com/sync_codes/$code.json"
+        val url = "https://guru-201bf-default-rtdb.firebaseio.com/sync_codes/$code.json"
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
@@ -267,7 +267,7 @@ class MainActivity : ComponentActivity() {
                     val deviceId = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
 
                     // Update sync code status in Firebase to "connected" and save deviceId
-                    val patchUrl = "https://omnisync-64ec6-default-rtdb.firebaseio.com/sync_codes/$code.json"
+                    val patchUrl = "https://guru-201bf-default-rtdb.firebaseio.com/sync_codes/$code.json"
                     val patchBody = JSONObject().apply {
                         put("status", "connected")
                         put("deviceId", deviceId)

@@ -8,7 +8,7 @@ const parseScheduledDate = (dateStr) => {
 };
 
 export default async (req, context) => {
-  const usersUrl = "https://omnisync-64ec6-default-rtdb.firebaseio.com/users.json";
+  const usersUrl = "https://guru-201bf-default-rtdb.firebaseio.com/users.json";
 
   try {
     const response = await fetch(usersUrl);
@@ -178,7 +178,7 @@ export default async (req, context) => {
 };
 
 async function sendAlert(uid, payload) {
-  const pendingUrl = `https://omnisync-64ec6-default-rtdb.firebaseio.com/users/${uid}/pending_notifications.json`;
+  const pendingUrl = `https://guru-201bf-default-rtdb.firebaseio.com/users/${uid}/pending_notifications.json`;
   const res = await fetch(pendingUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -188,7 +188,7 @@ async function sendAlert(uid, payload) {
 }
 
 async function markTriggered(uid, itemPath) {
-  const patchUrl = `https://omnisync-64ec6-default-rtdb.firebaseio.com/users/${uid}/${itemPath}.json`;
+  const patchUrl = `https://guru-201bf-default-rtdb.firebaseio.com/users/${uid}/${itemPath}.json`;
   await fetch(patchUrl, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
