@@ -230,10 +230,8 @@ export default function App() {
   }, [meets, generalMeets, events, pendingTasks]);
   
   
-  // Theme mode: 'dark' or 'light' (defaults to 'light')
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('omnisync_theme') || 'light';
-  });
+  // Theme mode: 'light' only
+  const [theme, setTheme] = useState('light');
 
   // Modal states
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
@@ -1439,10 +1437,7 @@ export default function App() {
             )}
           </button>
 
-          <div className="sidebar-section-title" style={{ marginTop: '1.5rem', fontSize: '0.7rem', color: 'var(--text-dim)', fontWeight: 700, textTransform: 'uppercase', padding: '0 0.5rem 0.4rem 0.5rem', letterSpacing: '0.05em' }}>
-            Expansion Roadmap
-          </div>
-
+          {/* Mobile Push Alerts */}
           <button 
             className={`nav-item ${activeTab === 'settings' ? 'active' : ''}`}
             onClick={() => {
@@ -1450,30 +1445,11 @@ export default function App() {
               setSettingsDefaultSection('notification-portal');
               setSettingsHideSidebar(true);
             }}
-            style={{ cursor: 'pointer', background: 'transparent', width: '100%', border: 'none', textAlign: 'left' }}
           >
             <Smartphone size={18} />
             <span>Mobile Push Alerts</span>
             <span className="badge-live" style={{ background: 'var(--accent-emerald)', color: 'white', padding: '2px 6px', borderRadius: '4px', fontWeight: 800, fontSize: '0.65rem', marginLeft: 'auto' }}>ACTIVE</span>
           </button>
-
-          <div className="nav-item" style={{ opacity: 0.55, cursor: 'not-allowed' }} title="Coming in next backend update">
-            <Mail size={18} />
-            <span>Email Auto-Ingester</span>
-            <span className="badge-upcoming">Soon</span>
-          </div>
-
-          <div className="nav-item" style={{ opacity: 0.55, cursor: 'not-allowed' }} title="Coming in next backend update">
-            <MessageSquare size={18} />
-            <span>WhatsApp Event Sync</span>
-            <span className="badge-upcoming">Soon</span>
-          </div>
-
-          <div className="nav-item" style={{ opacity: 0.55, cursor: 'not-allowed' }} title="Coming in next backend update">
-            <ShieldCheck size={18} />
-            <span>Protected Reminders</span>
-            <span className="badge-upcoming">Soon</span>
-          </div>
         </nav>
 
         {/* Sidebar Footer User Card */}
@@ -1586,7 +1562,7 @@ export default function App() {
         <header className="top-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem 1.5rem', borderBottom: '1px solid var(--border-color)', background: 'var(--bg-glass)' }}>
           {/* Today's Title Badge */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.92rem', color: 'var(--text-main)' }}>Today's Workspace Command</span>
+            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.92rem', color: 'var(--text-main)' }}>Workspace Command Center</span>
             <span style={{ background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--border-color)', borderRadius: '999px', padding: '2px 10px', fontSize: '0.65rem', fontWeight: 800, color: 'var(--text-muted)' }}>
               {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}
             </span>
@@ -1605,10 +1581,6 @@ export default function App() {
               <span>Quick Capture</span>
             </button>
 
-            {/* Theme Switcher Button */}
-            <button className="theme-toggle-btn" onClick={toggleTheme} style={{ height: '32px', padding: '0 10px', borderRadius: '8px', border: '1px solid var(--border-color)' }} title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}>
-              {theme === 'dark' ? <Sun size={14} color="var(--accent-amber)" /> : <Moon size={14} color="var(--primary)" />}
-            </button>
 
             {currentUser && (
               <div id="profile-menu-container" style={{ position: 'relative' }}>

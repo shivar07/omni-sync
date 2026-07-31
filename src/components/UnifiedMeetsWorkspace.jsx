@@ -123,14 +123,14 @@ export default function UnifiedMeetsWorkspace({
             </div>
 
             <div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', color: nextMeeting.meetType === 'google' ? '#00ac47' : 'var(--accent-cyan)', letterSpacing: '0.05em' }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>
                 ⚡ NEXT MEETING ({nextMeeting.platform.toUpperCase()})
               </div>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-main)', marginTop: '2px', margin: 0 }}>
                 {nextMeeting.title}
               </h2>
               <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px' }}>
-                <Clock size={15} color={nextMeeting.meetType === 'google' ? '#00ac47' : 'var(--accent-cyan)'} />
+                <Clock size={15} color="var(--text-muted)" />
                 <span>{new Date(nextMeeting.startDate).toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'short' })}</span>
               </div>
             </div>
@@ -144,10 +144,8 @@ export default function UnifiedMeetsWorkspace({
                 rel="noopener noreferrer" 
                 className="btn btn-primary"
                 style={{ 
-                  background: nextMeeting.meetType === 'google' ? 'linear-gradient(135deg, #00ac47 0%, #008332 100%)' : 'linear-gradient(135deg, var(--primary), var(--accent-cyan))', 
                   fontSize: '0.95rem', 
-                  padding: '0.75rem 1.5rem',
-                  boxShadow: nextMeeting.meetType === 'google' ? '0 0 15px rgba(0, 172, 71, 0.5)' : '0 0 15px rgba(34, 211, 238, 0.5)'
+                  padding: '0.75rem 1.5rem'
                 }}
               >
                 Join Now <ExternalLink size={16} />
@@ -157,68 +155,15 @@ export default function UnifiedMeetsWorkspace({
         </div>
       )}
 
-      {/* STAT CARDS */}
-      <div className="stats-grid">
-        <div className="glass-panel stat-card">
-          <div className="stat-icon-wrapper" style={{ background: 'rgba(0, 172, 71, 0.2)', color: '#00ac47' }}>
-            <Video size={24} />
-          </div>
-          <div>
-            <div className="stat-val">{stats.googleCount}</div>
-            <div className="stat-lbl">Google Meets</div>
-          </div>
-        </div>
-
-        <div className="glass-panel stat-card">
-          <div className="stat-icon-wrapper" style={{ background: 'rgba(34, 211, 238, 0.2)', color: 'var(--accent-cyan)' }}>
-            <Globe size={24} />
-          </div>
-          <div>
-            <div className="stat-val">{stats.generalCount}</div>
-            <div className="stat-lbl">General Meets</div>
-          </div>
-        </div>
-
-        <div className="glass-panel stat-card">
-          <div className="stat-icon-wrapper" style={{ background: 'rgba(245, 158, 11, 0.2)', color: 'var(--accent-amber)' }}>
-            <CalendarIcon size={24} />
-          </div>
-          <div>
-            <div className="stat-val">{stats.todayCount}</div>
-            <div className="stat-lbl">Meets Scheduled Today</div>
-          </div>
-        </div>
-
-        <div className="glass-panel stat-card">
-          <div className="stat-icon-wrapper" style={{ background: 'rgba(16, 185, 129, 0.2)', color: 'var(--accent-emerald)' }}>
-            <Clock size={24} />
-          </div>
-          <div>
-            <div className="stat-val">{stats.upcomingCount}</div>
-            <div className="stat-lbl">Upcoming Meetings</div>
-          </div>
-        </div>
-      </div>
 
       {/* CONTROLS TOOLBAR */}
       <div className="glass-panel" style={{ padding: '1.25rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
-          <div>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', margin: 0 }}>
-              <Video size={22} color="var(--primary)" /> Unified Meetings & Events Hub
-            </h2>
-            <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)', marginTop: '2px', margin: 0 }}>
-              Seamlessly manage Google Meets, Zoom calls, Luma.ma gatherings, and webinars from a single workspace.
-            </p>
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-            {/* Search */}
-            <div className="header-search" style={{ width: '220px' }}>
-              <Search className="search-icon" size={16} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', flex: 1 }}>
+            <div className="search-box" style={{ maxWidth: '300px', flex: 1 }}>
               <input 
-                type="text"
-                placeholder="Search meetings..."
+                type="text" 
+                placeholder="Search events/meets..." 
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -231,7 +176,7 @@ export default function UnifiedMeetsWorkspace({
             )}
 
             {/* Quick Add Buttons */}
-            <button className="btn btn-primary" style={{ background: 'linear-gradient(135deg, #00ac47, #008332)' }} onClick={onAddGoogleMeet}>
+            <button className="btn btn-primary" onClick={onAddGoogleMeet}>
               <Plus size={16} /> Schedule Google Meet
             </button>
             <button className="btn btn-primary" onClick={onAddGeneralMeet}>

@@ -168,50 +168,6 @@ export default function PendingWorkTracker({
         </div>
       )}
 
-      {/* METRIC CARDS */}
-      <div className="stats-grid">
-        <div className="glass-panel stat-card">
-          <div className="stat-icon-wrapper" style={{ background: 'rgba(59, 130, 246, 0.2)', color: 'var(--primary)' }}>
-            <Layers size={24} />
-          </div>
-          <div>
-            <div className="stat-val">{stats.pendingCount}</div>
-            <div className="stat-lbl">Active Pending Tasks</div>
-          </div>
-        </div>
-
-        <div className="glass-panel stat-card">
-          <div className="stat-icon-wrapper" style={{ background: 'rgba(244, 63, 94, 0.2)', color: 'var(--accent-rose)' }}>
-            <AlertTriangle size={24} />
-          </div>
-          <div>
-            <div className="stat-val" style={{ color: stats.overdueCount > 0 ? 'var(--accent-rose)' : 'inherit' }}>
-              {stats.overdueCount}
-            </div>
-            <div className="stat-lbl">Overdue Deadlines</div>
-          </div>
-        </div>
-
-        <div className="glass-panel stat-card">
-          <div className="stat-icon-wrapper" style={{ background: 'rgba(245, 158, 11, 0.2)', color: 'var(--accent-amber)' }}>
-            <Clock size={24} />
-          </div>
-          <div>
-            <div className="stat-val">{stats.dueTodayCount}</div>
-            <div className="stat-lbl">Due Today / 24h</div>
-          </div>
-        </div>
-
-        <div className="glass-panel stat-card">
-          <div className="stat-icon-wrapper" style={{ background: 'rgba(16, 185, 129, 0.2)', color: 'var(--accent-emerald)' }}>
-            <FileCheck2 size={24} />
-          </div>
-          <div>
-            <div className="stat-val">{stats.completedCount}</div>
-            <div className="stat-lbl">Completed Works</div>
-          </div>
-        </div>
-      </div>
 
       {/* TOOLBAR CONTROLS */}
       <div className="glass-panel" style={{ padding: '1.25rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>

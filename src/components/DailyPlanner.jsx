@@ -327,45 +327,6 @@ export default function DailyPlanner({ todos = [], onSaveTodos }) {
         </div>
       </div>
 
-      {/* METRICS DASHBOARD BANNER */}
-      <div className="glass-panel" style={{ padding: '1.5rem', background: 'rgba(59, 130, 246, 0.03)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{
-          position: 'absolute',
-          top: '-50px',
-          right: '-50px',
-          width: '180px',
-          height: '180px',
-          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)',
-          pointerEvents: 'none'
-        }} />
-        
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Sparkles size={16} color="var(--accent-cyan)" />
-              <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-main)' }}>
-                {encouragementText}
-              </span>
-            </div>
-            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1rem', color: 'var(--accent-cyan)' }}>
-              {stats.completed}/{stats.total} Tasks ({stats.percentage}%)
-            </span>
-          </div>
-
-          <div style={{ width: '100%', height: '8px', background: 'rgba(255,255,255,0.04)', borderRadius: '999px', overflow: 'hidden', border: '1px solid var(--border-color)' }}>
-            <div 
-              style={{ 
-                height: '100%', 
-                width: `${stats.percentage}%`, 
-                background: 'var(--gradient-electric)', 
-                borderRadius: '999px',
-                transition: 'width 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                boxShadow: '0 0 10px rgba(34, 211, 238, 0.4)'
-              }} 
-            />
-          </div>
-        </div>
-      </div>
 
       {/* THREE-COLUMN WORKSPACE: LEFT = QUICK CAPTURE FORM, RIGHT = MAIN TODOS WORKLIST */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem', alignItems: 'stretch' }}>

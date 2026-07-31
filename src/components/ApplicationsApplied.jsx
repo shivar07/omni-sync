@@ -62,48 +62,6 @@ export default function ApplicationsApplied({
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-      {/* STAT CARDS */}
-      <div className="stats-grid">
-        <div className="glass-panel stat-card">
-          <div className="stat-icon-wrapper" style={{ background: 'rgba(59, 130, 246, 0.2)', color: 'var(--primary)' }}>
-            <Briefcase size={24} />
-          </div>
-          <div>
-            <div className="stat-val">{stats.total}</div>
-            <div className="stat-lbl">Total Applications Applied</div>
-          </div>
-        </div>
-
-        <div className="glass-panel stat-card">
-          <div className="stat-icon-wrapper" style={{ background: 'rgba(245, 158, 11, 0.2)', color: 'var(--accent-amber)' }}>
-            <Clock size={24} />
-          </div>
-          <div>
-            <div className="stat-val">{stats.underReviewCount}</div>
-            <div className="stat-lbl">Under Review</div>
-          </div>
-        </div>
-
-        <div className="glass-panel stat-card">
-          <div className="stat-icon-wrapper" style={{ background: 'rgba(34, 211, 238, 0.2)', color: 'var(--accent-cyan)' }}>
-            <Layers size={24} />
-          </div>
-          <div>
-            <div className="stat-val">{stats.interviewingCount}</div>
-            <div className="stat-lbl">Interviewing</div>
-          </div>
-        </div>
-
-        <div className="glass-panel stat-card">
-          <div className="stat-icon-wrapper" style={{ background: 'rgba(16, 185, 129, 0.2)', color: 'var(--accent-emerald)' }}>
-            <CheckCircle2 size={24} />
-          </div>
-          <div>
-            <div className="stat-val">{stats.acceptedCount}</div>
-            <div className="stat-lbl">Accepted / Offers</div>
-          </div>
-        </div>
-      </div>
 
       {/* TOOLBAR CONTROLS */}
       <div className="glass-panel" style={{ padding: '1.25rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
