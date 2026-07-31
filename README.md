@@ -18,3 +18,9 @@ device Pairing Match app with web dashbaord using generated sync codes
 background Service Polls Firebase Realtime Datbase for pending notifcations
 local Notifications Triggers system alerts for meetings tasks and applications with deep links
 delivery Confirmations Sends acknoledgment receipt status back to datbase
+
+## screenshots
+![screenshot 1](pic/Screenshot%202026-07-31%20231333.png)
+![screenshot 2](pic/Screenshot%202026-08-01%20001558.png)
+![screenshot 3](pic/Screenshot%202026-08-01%20001607.png)
+![screenshot 4](pic/Screenshot%202026-08-01%20001634.png)
