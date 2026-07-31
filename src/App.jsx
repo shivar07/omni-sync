@@ -269,7 +269,8 @@ export default function App() {
   const [settingsDefaultSection, setSettingsDefaultSection] = useState('pending-tags');
   const [settingsHideSidebar, setSettingsHideSidebar] = useState(false);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(() => {
-    return localStorage.getItem('omnisync_sidebar_collapsed') === 'true';
+    const saved = localStorage.getItem('omnisync_sidebar_collapsed');
+    return saved !== null ? saved === 'true' : true;
   });
 
   useEffect(() => {
