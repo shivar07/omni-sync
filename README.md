@@ -2,7 +2,7 @@
 
 Omni Sync is a system that syncronises workspaces tasks calendars meetings applications and ideas between a web dashbaord and an Android companion app
 
-![screenshot 1](pic/Screenshot%202026-07-31%20231333.png)
+![screenshot 1](pic/Screenshot%202026-08-01%20005441.png)
 
 ## Web dashboard Features
 Executive dashboard Central view for system statuss updates and quick navigation
@@ -23,6 +23,6 @@ delivery Confirmations Sends acknoledgment receipt status back to datbase
 
 ## screenshots
 
-![screenshot 2](pic/Screenshot%202026-08-01%20001558.png)
-![screenshot 3](pic/Screenshot%202026-08-01%20001607.png)
-![screenshot 4](pic/Screenshot%202026-08-01%20001634.png)
+![screenshot 2](pic/Screenshot%202026-08-01%20005448.png)
+![screenshot 3](pic/Screenshot%202026-08-01%20005454.png)
+![screenshot 4](pic/Screenshot%202026-08-01%20005501.png)
